@@ -19,52 +19,51 @@
     input[type='range']:active::-webkit-slider-thumb { transform: scale(1.15); }
   </style>
 </head>
-<body class="min-h-screen bg-[#050505] text-slate-100 font-sans selection:bg-emerald-500/30 p-4 md:p-8 flex items-center justify-center">
+<body class="min-h-screen bg-[#050505] text-slate-100 font-sans p-4 md:p-8 flex items-center justify-center">
   <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-    <!-- 左側控制 -->
     <div class="lg:col-span-5 space-y-6">
-      <header class="mb-8">
-        <h1 class="text-2xl font-bold tracking-tight">健康指標儀表板<span class="text-emerald-500">.</span></h1>
+      <header class="mb-4">
+        <h1 class="text-2xl font-bold">健康指標儀表板<span class="text-emerald-500">.</span></h1>
         <p class="text-slate-500 text-sm">BMI / 腰高比 / 熱量需求綜合分析</p>
       </header>
 
-      <div class="bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-6 space-y-6">
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-6 space-y-6">
         <div class="flex p-1 bg-black/40 rounded-2xl border border-white/5">
-          <button id="btnMetric" class="flex-1 py-2 rounded-xl text-sm font-medium bg-white/10 text-white">公制 (cm/kg)</button>
-          <button id="btnImperial" class="flex-1 py-2 rounded-xl text-sm font-medium text-slate-500">英制 (in/lb)</button>
+          <button id="btnMetric" class="flex-1 py-2 rounded-xl text-sm font-medium bg-white/10 text-white">公制</button>
+          <button id="btnImperial" class="flex-1 py-2 rounded-xl text-sm font-medium text-slate-500">英制</button>
         </div>
 
-        <div class="space-y-3">
-          <div class="flex justify-between items-end"><span class="text-xs text-slate-400">身高</span><span><span id="heightVal">175</span> <span id="heightUnit" class="text-xs text-slate-500">cm</span></span></div>
+        <div class="space-y-2">
+          <div class="flex justify-between text-sm"><span>身高</span><span><span id="heightVal">175</span> <span id="heightUnit">cm</span></span></div>
           <input id="height" type="range" min="100" max="220" value="175" class="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-emerald-500">
         </div>
 
-        <div class="space-y-3">
-          <div class="flex justify-between items-end"><span class="text-xs text-slate-400">體重</span><span><span id="weightVal">70</span> <span id="weightUnit" class="text-xs text-slate-500">kg</span></span></div>
+        <div class="space-y-2">
+          <div class="flex justify-between text-sm"><span>體重</span><span><span id="weightVal">70</span> <span id="weightUnit">kg</span></span></div>
           <input id="weight" type="range" min="30" max="200" value="70" class="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-emerald-500">
         </div>
 
-        <div class="space-y-3">
-          <div class="flex justify-between items-end"><span class="text-xs text-slate-400">年齡</span><span><span id="ageVal">25</span> <span class="text-xs text-slate-500">歲</span></span></div>
+        <div class="space-y-2">
+          <div class="flex justify-between text-sm"><span>年齡</span><span><span id="ageVal">25</span> 歲</span></div>
           <input id="age" type="range" min="10" max="90" value="25" class="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-emerald-500">
         </div>
 
-        <div class="space-y-3">
-          <div class="flex justify-between items-end"><span class="text-xs text-slate-400">腰圍</span><span><span id="waistVal">80</span> <span id="waistUnit" class="text-xs text-slate-500">cm</span></span></div>
+        <div class="space-y-2">
+          <div class="flex justify-between text-sm"><span>腰圍</span><span><span id="waistVal">80</span> <span id="waistUnit">cm</span></span></div>
           <input id="waist" type="range" min="45" max="150" value="80" class="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-emerald-500">
         </div>
 
-        <div class="grid grid-cols-2 gap-4 pt-2">
-          <div class="p-4 bg-black/20 rounded-2xl border border-white/5 space-y-2">
-            <span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">性別</span>
-            <div class="flex gap-4">
-              <button id="maleBtn" class="text-sm text-emerald-400">男</button>
-              <button id="femaleBtn" class="text-sm text-slate-600">女</button>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="p-3 bg-black/20 rounded-xl border border-white/5">
+            <div class="text-[10px] text-slate-500 mb-2">性別</div>
+            <div class="flex gap-3">
+              <button id="maleBtn" class="text-emerald-400">男</button>
+              <button id="femaleBtn" class="text-slate-500">女</button>
             </div>
           </div>
-          <div class="p-4 bg-black/20 rounded-2xl border border-white/5 space-y-2">
-            <span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">活動量</span>
-            <select id="activity" class="bg-black/40 text-slate-200 text-xs rounded-lg px-2 py-1 w-full">
+          <div class="p-3 bg-black/20 rounded-xl border border-white/5">
+            <div class="text-[10px] text-slate-500 mb-2">活動量</div>
+            <select id="activity" class="bg-black/40 text-slate-200 text-xs rounded px-2 py-1 w-full">
               <option value="1.2">久坐</option>
               <option value="1.375" selected>輕度活動</option>
               <option value="1.55">中度活動</option>
@@ -73,33 +72,26 @@
           </div>
         </div>
       </div>
-
-      <div class="p-4 bg-emerald-500/5 rounded-2xl border border-emerald-500/10 text-xs text-slate-400">
-        你的體表面積約 <strong id="bsa">1.84</strong> m²，腰高比為 <strong id="whtr">0.46</strong>（<span id="whtrRisk">理想</span>）。
-      </div>
     </div>
 
-    <!-- 右側結果 -->
-    <div class="lg:col-span-7 space-y-6">
-      <div id="resultCard" class="relative overflow-hidden bg-white/5 border border-white/10 backdrop-blur-2xl rounded-[2.5rem] p-8 md:p-12">
-        <div class="relative flex flex-col items-center">
-          <span class="text-xs font-bold tracking-[0.3em] uppercase text-slate-500 mb-2">目前狀態</span>
-          <h2 id="categoryLabel" class="text-4xl font-bold mb-8 text-emerald-400">健康體重</h2>
-          <div class="text-6xl font-bold tracking-tighter text-white"><span id="bmi">22.9</span></div>
-          <div class="text-sm text-slate-500 mt-1 uppercase tracking-widest mb-6">BMI</div>
-          <p id="categoryDesc" class="text-sm text-slate-400 italic mb-8 text-center">「恭喜！目前落在健康區間，持續保持。」</p>
+    <div class="lg:col-span-7 space-y-4">
+      <div class="bg-white/5 border border-white/10 rounded-3xl p-8">
+        <div class="text-xs text-slate-500 mb-2">目前狀態</div>
+        <h2 id="categoryLabel" class="text-3xl font-bold text-emerald-400 mb-3">健康體重</h2>
+        <div class="text-5xl font-bold"><span id="bmi">22.9</span></div>
+        <div class="text-slate-500 mb-4">BMI</div>
+        <p id="categoryDesc" class="text-slate-400 mb-6">「恭喜！目前落在健康區間，持續保持。」</p>
 
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 w-full text-sm">
-            <div class="bg-black/30 border border-white/5 rounded-3xl p-4"><div class="text-slate-500 text-[10px]">健康下限</div><div id="minW">56.7 kg</div></div>
-            <div class="bg-black/30 border border-white/5 rounded-3xl p-4"><div class="text-slate-500 text-[10px]">健康上限</div><div id="maxW">76.3 kg</div></div>
-            <div class="bg-black/30 border border-white/5 rounded-3xl p-4"><div class="text-slate-500 text-[10px]">風險分級</div><div id="risk">良好</div></div>
-            <div class="bg-black/30 border border-white/5 rounded-3xl p-4"><div class="text-slate-500 text-[10px]">腰高比</div><div id="whtrCard">0.46 (理想)</div></div>
-            <div class="bg-black/30 border border-white/5 rounded-3xl p-4"><div class="text-slate-500 text-[10px]">基礎代謝 BMR</div><div id="bmr">1674 kcal/日</div></div>
-            <div class="bg-black/30 border border-white/5 rounded-3xl p-4"><div class="text-slate-500 text-[10px]">維持熱量 TDEE</div><div id="tdee">2302 kcal/日</div></div>
-          </div>
-
-          <div id="delta" class="mt-6 text-sm text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl px-4 py-3">目前體重位於健康範圍內</div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
+          <div class="bg-black/30 border border-white/5 rounded-2xl p-3"><div class="text-slate-500 text-[10px]">健康下限</div><div id="minW"></div></div>
+          <div class="bg-black/30 border border-white/5 rounded-2xl p-3"><div class="text-slate-500 text-[10px]">健康上限</div><div id="maxW"></div></div>
+          <div class="bg-black/30 border border-white/5 rounded-2xl p-3"><div class="text-slate-500 text-[10px]">風險分級</div><div id="risk"></div></div>
+          <div class="bg-black/30 border border-white/5 rounded-2xl p-3"><div class="text-slate-500 text-[10px]">腰高比</div><div id="whtrCard"></div></div>
+          <div class="bg-black/30 border border-white/5 rounded-2xl p-3"><div class="text-slate-500 text-[10px]">BMR</div><div id="bmr"></div></div>
+          <div class="bg-black/30 border border-white/5 rounded-2xl p-3"><div class="text-slate-500 text-[10px]">TDEE</div><div id="tdee"></div></div>
         </div>
+
+        <div id="delta" class="mt-4 text-sm text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-3 py-2"></div>
       </div>
     </div>
   </div>
@@ -107,53 +99,69 @@
 <script>
   const state = {
     unit: 'metric',
-    height: 175, weight: 70, age: 25, waist: 80,
-    gender: 'male', activityLevel: 1.375
+    height: 175,
+    weight: 70,
+    age: 25,
+    waist: 80,
+    gender: 'male',
+    activityLevel: 1.375
   };
 
-  const $ = id => document.getElementById(id);
+  const $ = (id) => document.getElementById(id);
 
-  function calc() {
+  function syncInputsAndLabels() {
+    $('height').value = state.height;
+    $('weight').value = state.weight;
+    $('age').value = state.age;
+    $('waist').value = state.waist;
+
+    $('heightVal').textContent = state.height;
+    $('weightVal').textContent = state.weight;
+    $('ageVal').textContent = state.age;
+    $('waistVal').textContent = state.waist;
+
+    $('heightUnit').textContent = state.unit === 'metric' ? 'cm' : 'in';
+    $('weightUnit').textContent = state.unit === 'metric' ? 'kg' : 'lb';
+    $('waistUnit').textContent = state.unit === 'metric' ? 'cm' : 'in';
+  }
+
+  function calculateAndRender() {
     const hCm = state.unit === 'metric' ? state.height : state.height * 2.54;
     const wKg = state.unit === 'metric' ? state.weight : state.weight / 2.205;
     const waistCm = state.unit === 'metric' ? state.waist : state.waist * 2.54;
 
     const bmi = wKg / ((hCm / 100) ** 2);
     const minKg = 18.5 * ((hCm / 100) ** 2);
-    const maxKg = 24.9 * ((hCm / 100) ** 2;
-    const bsa = Math.sqrt((hCm * wKg) / 3600);
+    const maxKg = 24.9 * ((hCm / 100) ** 2);
+    const bmr = state.gender === 'male'
+      ? 10 * wKg + 6.25 * hCm - 5 * state.age + 5
+      : 10 * wKg + 6.25 * hCm - 5 * state.age - 161;
+    const tdee = bmr * state.activityLevel;
     const whtr = waistCm / hCm;
+
+    let cat = { label: '肥胖', color: 'text-rose-500', desc: '建議諮詢專業醫療/營養人員，規劃減重方案。' };
+    if (bmi < 18.5) cat = { label: '體重過輕', color: 'text-blue-400', desc: '建議增加優質蛋白與阻力訓練，循序增重。' };
+    else if (bmi < 24.9) cat = { label: '健康體重', color: 'text-emerald-400', desc: '恭喜！目前落在健康區間，持續保持。' };
+    else if (bmi < 29.9) cat = { label: '體重過重', color: 'text-amber-400', desc: '可增加日常活動量，並調整飲食結構。' };
 
     let whtrRisk = '高風險（建議就醫評估）';
     if (whtr < 0.4) whtrRisk = '偏低（可能過瘦）';
     else if (whtr < 0.5) whtrRisk = '理想';
     else if (whtr < 0.6) whtrRisk = '偏高（建議控脂）';
 
-    const bmr = state.gender === 'male'
-      ? 10 * wKg + 6.25 * hCm - 5 * state.age + 5
-      : 10 * wKg + 6.25 * hCm - 5 * state.age - 161;
-    const tdee = bmr * state.activityLevel;
-
-    let category = { label:'肥胖', color:'text-rose-500', desc:'建議諮詢專業醫療/營養人員，規劃減重方案。' };
-    if (bmi < 18.5) category = { label:'體重過輕', color:'text-blue-400', desc:'建議增加優質蛋白與阻力訓練，循序增重。' };
-    else if (bmi < 24.9) category = { label:'健康體重', color:'text-emerald-400', desc:'恭喜！目前落在健康區間，持續保持。' };
-    else if (bmi < 29.9) category = { label:'體重過重', color:'text-amber-400', desc:'可增加日常活動量，並調整飲食結構。' };
-
     const unitW = state.unit === 'metric' ? 'kg' : 'lb';
     const minW = state.unit === 'metric' ? minKg : minKg * 2.205;
     const maxW = state.unit === 'metric' ? maxKg : maxKg * 2.205;
 
     $('bmi').textContent = bmi.toFixed(1);
-    $('categoryLabel').textContent = category.label;
-    $('categoryLabel').className = `text-4xl font-bold mb-8 ${category.color}`;
-    $('categoryDesc').textContent = `「${category.desc}」`;
-    $('bsa').textContent = bsa.toFixed(2);
-    $('whtr').textContent = whtr.toFixed(2);
-    $('whtrRisk').textContent = whtrRisk;
-    $('whtrCard').textContent = `${whtr.toFixed(2)} (${whtrRisk})`;
+    $('categoryLabel').textContent = cat.label;
+    $('categoryLabel').className = `text-3xl font-bold mb-3 ${cat.color}`;
+    $('categoryDesc').textContent = `「${cat.desc}」`;
+
     $('minW').textContent = `${minW.toFixed(1)} ${unitW}`;
     $('maxW').textContent = `${maxW.toFixed(1)} ${unitW}`;
     $('risk').textContent = bmi >= 25 ? '中等' : (bmi < 18.5 ? '輕度' : '良好');
+    $('whtrCard').textContent = `${whtr.toFixed(2)} (${whtrRisk})`;
     $('bmr').textContent = `${Math.round(bmr)} kcal/日`;
     $('tdee').textContent = `${Math.round(tdee)} kcal/日`;
 
@@ -162,54 +170,53 @@
     else $('delta').textContent = '目前體重位於健康範圍內';
   }
 
-  function syncLabels() {
-    $('heightVal').textContent = state.height;
-    $('weightVal').textContent = state.weight;
-    $('ageVal').textContent = state.age;
-    $('waistVal').textContent = state.waist;
-    $('heightUnit').textContent = state.unit === 'metric' ? 'cm' : 'in';
-    $('weightUnit').textContent = state.unit === 'metric' ? 'kg' : 'lb';
-    $('waistUnit').textContent = state.unit === 'metric' ? 'cm' : 'in';
+  function setUnit(unit) {
+    state.unit = unit;
+    if (unit === 'metric') {
+      $('height').min = 100; $('height').max = 220;
+      $('weight').min = 30; $('weight').max = 200;
+      $('waist').min = 45; $('waist').max = 150;
+      state.height = 175; state.weight = 70; state.waist = 80;
+      $('btnMetric').className = 'flex-1 py-2 rounded-xl text-sm font-medium bg-white/10 text-white';
+      $('btnImperial').className = 'flex-1 py-2 rounded-xl text-sm font-medium text-slate-500';
+    } else {
+      $('height').min = 40; $('height').max = 90;
+      $('weight').min = 60; $('weight').max = 440;
+      $('waist').min = 18; $('waist').max = 60;
+      state.height = 69; state.weight = 154; state.waist = 31;
+      $('btnImperial').className = 'flex-1 py-2 rounded-xl text-sm font-medium bg-white/10 text-white';
+      $('btnMetric').className = 'flex-1 py-2 rounded-xl text-sm font-medium text-slate-500';
+    }
+    syncInputsAndLabels();
+    calculateAndRender();
   }
 
-  ['height','weight','age','waist'].forEach(id => {
-    $(id).addEventListener('input', e => {
-      state[id] = Number(e.target.value);
-      syncLabels(); calc();
-    });
-  });
+  $('height').addEventListener('input', e => { state.height = Number(e.target.value); syncInputsAndLabels(); calculateAndRender(); });
+  $('weight').addEventListener('input', e => { state.weight = Number(e.target.value); syncInputsAndLabels(); calculateAndRender(); });
+  $('age').addEventListener('input', e => { state.age = Number(e.target.value); syncInputsAndLabels(); calculateAndRender(); });
+  $('waist').addEventListener('input', e => { state.waist = Number(e.target.value); syncInputsAndLabels(); calculateAndRender(); });
 
-  $('activity').addEventListener('change', e => { state.activityLevel = Number(e.target.value); calc(); });
+  $('activity').addEventListener('change', e => { state.activityLevel = Number(e.target.value); calculateAndRender(); });
 
   $('maleBtn').addEventListener('click', () => {
-    state.gender = 'male'; $('maleBtn').className='text-sm text-emerald-400'; $('femaleBtn').className='text-sm text-slate-600'; calc();
+    state.gender = 'male';
+    $('maleBtn').className = 'text-emerald-400';
+    $('femaleBtn').className = 'text-slate-500';
+    calculateAndRender();
   });
+
   $('femaleBtn').addEventListener('click', () => {
-    state.gender = 'female'; $('femaleBtn').className='text-sm text-emerald-400'; $('maleBtn').className='text-sm text-slate-600'; calc();
+    state.gender = 'female';
+    $('femaleBtn').className = 'text-emerald-400';
+    $('maleBtn').className = 'text-slate-500';
+    calculateAndRender();
   });
 
-  $('btnMetric').addEventListener('click', () => {
-    state.unit='metric';
-    $('height').min=100; $('height').max=220;
-    $('weight').min=30; $('weight').max=200;
-    $('waist').min=45; $('waist').max=150;
-    $('btnMetric').className='flex-1 py-2 rounded-xl text-sm font-medium bg-white/10 text-white';
-    $('btnImperial').className='flex-1 py-2 rounded-xl text-sm font-medium text-slate-500';
-    syncLabels(); calc();
-  });
+  $('btnMetric').addEventListener('click', () => setUnit('metric'));
+  $('btnImperial').addEventListener('click', () => setUnit('imperial'));
 
-  $('btnImperial').addEventListener('click', () => {
-    state.unit='imperial';
-    $('height').min=40; $('height').max=90;
-    $('weight').min=60; $('weight').max=440;
-    $('waist').min=18; $('waist').max=60;
-    $('btnImperial').className='flex-1 py-2 rounded-xl text-sm font-medium bg-white/10 text-white';
-    $('btnMetric').className='flex-1 py-2 rounded-xl text-sm font-medium text-slate-500';
-    syncLabels(); calc();
-  });
-
-  syncLabels();
-  calc();
+  syncInputsAndLabels();
+  calculateAndRender();
 </script>
 </body>
 </html>
